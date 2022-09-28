@@ -3,7 +3,6 @@ package mx.com.earr.basketballscoreapp
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import mx.com.earr.basketballscoreapp.databinding.ActivityMainBinding
 
@@ -20,13 +19,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.mainViewModel = viewModel
 
-        viewModel.localScoreViewModel.observe(this, Observer { localScoreValue ->
+        viewModel.localScoreViewModel.observe(this) { localScoreValue ->
             binding.localScoreText.text = localScoreValue.toString()
-        })
+        }
 
-        viewModel.visitorScoreViewModel.observe(this, Observer { visitorScoreValue ->
+        viewModel.visitorScoreViewModel.observe(this) { visitorScoreValue ->
             binding.visitorScoreText.text = visitorScoreValue.toString()
-        })
+        }
 
         setupButtons()
     }
@@ -35,10 +34,6 @@ class MainActivity : AppCompatActivity() {
         binding.resultsButton.setOnClickListener {
             startScoreActivity()
         }
-    }
-
-    private fun addPointsToScore(points: Int, isLocal: Boolean) {
-        viewModel.addPointsToScore(points, isLocal)
     }
 
     private fun startScoreActivity() {
