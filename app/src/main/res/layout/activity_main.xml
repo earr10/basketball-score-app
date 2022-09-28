@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="mainViewModel"
+            type="mx.com.earr.basketballscoreapp.MainViewModel" />
     </data>
 
     <RelativeLayout
@@ -25,6 +28,7 @@
                 android:layout_width="72dp"
                 android:layout_height="72dp"
                 android:contentDescription="@string/image_description"
+                android:onClick="@{() -> mainViewModel.resetScores()}"
                 android:padding="16dp"
                 android:src="@drawable/ic_restore" />
 
@@ -90,6 +94,7 @@
                 android:id="@+id/local_minus_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="@{() -> mainViewModel.decreaseLocalScore()}"
                 android:text="@string/minus_one"
                 android:textSize="24sp" />
 
@@ -113,6 +118,7 @@
                     android:id="@+id/local_plus_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="@{() -> mainViewModel.addPointsToScore(1, true)}"
                     android:text="@string/plus_one"
                     android:textSize="24sp" />
 
@@ -120,6 +126,7 @@
                     android:id="@+id/local_two_points_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="@{() -> mainViewModel.addPointsToScore(2, true)}"
                     android:text="@string/plus_two"
                     android:textSize="24sp" />
             </LinearLayout>
@@ -140,6 +147,7 @@
                 android:id="@+id/visitor_minus_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="@{() -> mainViewModel.decreaseVisitorScore()}"
                 android:text="@string/minus_one"
                 android:textSize="24sp" />
 
@@ -163,6 +171,7 @@
                     android:id="@+id/visitor_plus_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="@{() -> mainViewModel.addPointsToScore(1, false)}"
                     android:text="@string/plus_one"
                     android:textSize="24sp" />
 
@@ -170,6 +179,7 @@
                     android:id="@+id/visitor_two_points_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="@{() -> mainViewModel.addPointsToScore(2, false)}"
                     android:text="@string/plus_two"
                     android:textSize="24sp" />
             </LinearLayout>
